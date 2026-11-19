@@ -185,6 +185,32 @@ a { color: inherit; } img { display: block; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .rv, .dimh i, .rootl, .g::before, .g::after, .stamp, .dr, .call::after { transition: none !important; animation: none !important; } .rv { opacity: 1; transform: none; } .dimh i, .rootl, .g::before, .g::after { transform: none; } .dr { stroke-dashoffset: 0; } .stamp { opacity: 0.95; transform: rotate(-9deg); } .name { background-position: 0 0; animation: none !important; } .comp { animation: none; } .call::after { width: 30px; } }
 @media print { body::before, .top, .tblk, #xh { display: none; } .sheet { break-inside: avoid; margin-bottom: 20px; } .rv { opacity: 1; transform: none; } }
+
+/* ===== Peningkatan warna: biru lebih terang dengan gradasi radial seperti kertas blueprint ===== */
+:root { --bg: #2a63cf; --bg2: #17419f; --grad: radial-gradient(ellipse 85% 70% at 50% 42%, #4f95ee 0%, #3a78dd 32%, #2a5fcb 62%, #1b44ad 100%); --accg: linear-gradient(135deg, #ffe477, #ffbf3a); --mute: rgba(244, 248, 255, 0.84); --ln2: rgba(234, 242, 255, 0.62); --ln3: rgba(234, 242, 255, 0.2); --ln4: rgba(234, 242, 255, 0.09); --sheet: linear-gradient(165deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.02) 55%, rgba(10, 40, 130, 0.14)); }
+html[data-theme="paper"] { --bg: #f6f1e3; --bg2: #ebe4cf; --grad: radial-gradient(ellipse 85% 70% at 50% 42%, #fffdf5 0%, #f7f2e3 45%, #e9e1c8 100%); --accg: linear-gradient(135deg, #e5471a, #c52f0a); --sheet: linear-gradient(165deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.06)); }
+html { background: var(--grad) fixed; background-color: var(--bg); }
+body { background: transparent; }
+body::before { background-image: linear-gradient(var(--ln3) 1px, transparent 1px), linear-gradient(90deg, var(--ln3) 1px, transparent 1px), linear-gradient(var(--ln4) 1px, transparent 1px), linear-gradient(90deg, var(--ln4) 1px, transparent 1px) !important; background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px !important; }
+.top { background: color-mix(in srgb, var(--bg) 78%, transparent); }
+.tab, .foot { background: var(--grad) fixed; background-color: var(--bg); }
+.sheet { background: var(--sheet); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset, 0 18px 60px rgba(8, 30, 110, 0.28); }
+.tblk { background: linear-gradient(160deg, #1d4eb8, #123893); }
+html[data-theme="paper"] .tblk { background: linear-gradient(160deg, #fffdf5, #ece4cc); }
+.tblk .go, .btn.y, .g .nd, .cb { background: var(--accg); }
+.btn.y:hover { background: var(--accg); }
+.tblk .bar i { background: linear-gradient(90deg, #8fe6ff, #ffd84a); }
+.stat b { background: var(--accg); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.scr .bw { mix-blend-mode: screen; opacity: 0.92; }
+
+/* grid latar dihapus; diganti garis bantu putus-putih saat item di-hover */
+body::before { display: block !important; background-image: linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px), linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px) !important; background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px !important; }
+html[data-theme="paper"] body::before { background-image: linear-gradient(rgba(22, 63, 150, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(22, 63, 150, 0.045) 1px, transparent 1px), linear-gradient(rgba(22, 63, 150, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(22, 63, 150, 0.02) 1px, transparent 1px) !important; }
+:root { --gl: rgba(255, 255, 255, 0.9); } html[data-theme="paper"] { --gl: rgba(16, 48, 111, 0.75); }
+#gl { position: fixed; inset: 0; z-index: 24; pointer-events: none; opacity: 0; transition: opacity 120ms; } #gl.on { opacity: 1; }
+#gl i { position: absolute; display: block; } #gl .h { left: 0; right: 0; height: 1px; background: repeating-linear-gradient(90deg, var(--gl) 0 8px, transparent 8px 14px); } #gl .v { top: 0; bottom: 0; width: 1px; background: repeating-linear-gradient(180deg, var(--gl) 0 8px, transparent 8px 14px); }
+#gl b { position: absolute; display: block; border: 1px dashed var(--gl); }
+@media (hover: none) { #gl { display: none; } }
 </style>
 </head>
 <body>
@@ -196,6 +222,7 @@ a { color: inherit; } img { display: block; }
   <div class="r last"><span id="tbs">Lembar 01/11</span><b id="tbn">Beranda</b><button type="button" class="go" data-cv aria-label="Unduh CV dalam PDF">CV ↓ PDF</button></div>
   <div class="bar"><i id="tbp"></i></div>
 </aside>
+<div id="gl" aria-hidden="true"><i class="h"></i><i class="h"></i><i class="v"></i><i class="v"></i><b></b></div>
 <div id="xh" aria-hidden="true"><i class="h"></i><i class="v"></i><span></span></div>
 <div id="lb" class="lb" hidden role="dialog" aria-modal="true" aria-label="Pratinjau screenshot">
   <button type="button" class="close" id="lb-close">Tutup</button><img id="lb-img" alt=""><div class="cap" id="lb-cap"></div>
@@ -423,6 +450,21 @@ document.addEventListener("click", e => {
   const go = t.closest("[data-go]"); if (go) { e.preventDefault(); const el = document.getElementById(go.dataset.go); if (el) el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); }
 });
 document.addEventListener("keydown", e => { if (!lb.hidden) { if (e.key === "Escape") lbClose(); else if (e.key === "ArrowLeft") lbStep(-1); else if (e.key === "ArrowRight") lbStep(1); } });
+
+/* ---------- garis bantu saat hover ---------- */
+(() => {
+  if (matchMedia("(hover: none)").matches) return;
+  const gl = $("#gl"), hs = $$(".h", gl), vs = $$(".v", gl), bx = $("b", gl);
+  const SEL = "a, button, .chips li, .g li span, .nd, .rt .row, .stat, .tblk, .phone, .notes li, .kick, .btn";
+  let el = null, raf = 0;
+  function draw() { raf = 0; if (!el || !document.contains(el)) { gl.classList.remove("on"); return; } const r = el.getBoundingClientRect(); if (r.width < 4 || r.height < 4) { gl.classList.remove("on"); return; }
+    hs[0].style.top = Math.round(r.top) + "px"; hs[1].style.top = Math.round(r.bottom) + "px"; vs[0].style.left = Math.round(r.left) + "px"; vs[1].style.left = Math.round(r.right) + "px";
+    bx.style.cssText = "left:" + (r.left - 4) + "px;top:" + (r.top - 4) + "px;width:" + (r.width + 8) + "px;height:" + (r.height + 8) + "px"; gl.classList.add("on"); }
+  const sched = () => { if (!raf) raf = requestAnimationFrame(draw); };
+  document.addEventListener("pointerover", e => { if (e.pointerType === "touch") return; const t = e.target.closest ? e.target.closest(SEL) : null; if (t && !t.closest("#lb")) { el = t; sched(); } });
+  document.addEventListener("pointerout", e => { if (el && !(e.relatedTarget && el.contains(e.relatedTarget))) { const n = e.relatedTarget && e.relatedTarget.closest ? e.relatedTarget.closest(SEL) : null; if (!n) { el = null; sched(); } } });
+  addEventListener("scroll", sched, { passive: true }); addEventListener("resize", sched);
+})();
 </script>
 </body>
 </html>
