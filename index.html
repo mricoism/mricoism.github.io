@@ -82,7 +82,7 @@ a { color: inherit; } img { display: block; }
 .sub { font-size: 19px; max-width: 46ch; color: var(--mute); }
 .toc { display: grid; grid-template-columns: repeat(3, auto); gap: 0 26px; font: 500 12px var(--mono); letter-spacing: 0.05em; text-transform: uppercase; border-top: 1px solid var(--ln2); padding-top: 12px; width: 100%; max-width: 640px; }
 .toc button { display: flex; gap: 10px; padding: 3px 0; color: var(--mute); } .toc button b { color: var(--acc); font-weight: 600; } .toc button:hover { color: var(--ink); }
-.hr { position: relative; display: grid; place-items: center; min-height: 620px; padding-left: 70px; }
+.hr { position: relative; display: grid; place-items: center; min-height: 620px; padding: 0 72px 0 36px; }
 .comp { position: absolute; width: min(560px, 120%); aspect-ratio: 1; opacity: 0.9; animation: spin 140s linear infinite; pointer-events: none; } @keyframes spin { to { transform: rotate(360deg); } }
 .pw { position: relative; width: min(310px, 66%); }
 .phone { position: relative; display: block; width: 100%; aspect-ratio: 393 / 852; border: 2px solid var(--ln); border-radius: 15% / 7%; padding: 3.2%; background: color-mix(in srgb, var(--bg2) 70%, transparent); cursor: pointer; box-shadow: 0 0 0 6px var(--ln4), 0 0 40px rgba(143, 230, 255, 0.12); }
@@ -175,7 +175,7 @@ a { color: inherit; } img { display: block; }
 @media (max-width: 760px) {
   .page { padding: 64px 12px 96px; } .sheet { padding: 40px 18px 34px; margin-bottom: 46px; } .zs { display: none; } .zt { left: 20px; right: 20px; } .tab { left: 18px; font-size: 11px; } .foot { right: 16px; }
   .nw { padding-right: 34px; } .nw .dimh { right: 34px; } .hl { gap: 18px; } .sub { font-size: 17px; } .toc { grid-template-columns: 1fr 1fr; gap: 0 14px; font-size: 11px; }
-  .hr { min-height: 460px; padding-left: 0; } .pw { width: min(220px, 62%); } .call, .nw .dimv { display: none; } .nw { padding-right: 0; } .nw .dimh { right: 0; } .pw .dimv { left: calc(100% + 8px); } .cap { letter-spacing: 0.06em; font-size: 11px; }
+  .hr { min-height: 460px; padding: 0; } .pw { width: min(220px, 62%); } .call, .nw .dimv { display: none; } .nw { padding-right: 0; } .nw .dimh { right: 0; } .pw .dimv { left: calc(100% + 8px); } .cap { letter-spacing: 0.06em; font-size: 11px; }
   .view { padding: 38px 12px 52px; min-height: 360px; } .fan2 { gap: 10px; } .fan2 .pw2 { width: 30%; } .wf { width: 62%; }
   .rt .hd { display: none; } .rt .row { grid-template-columns: 44px 1fr auto; } .rt .row > * { border: 0; padding: 12px 10px; } .rt .per { grid-column: 2; grid-row: 1; } .rt .rl { grid-column: 2; } .rt .og { grid-column: 2; padding-top: 0 !important; } .rt .st { grid-column: 3; grid-row: 1; } .rt .rev { grid-row: 1 / span 3; } .rt .pts { padding-left: 14px; }
   .grps { grid-template-columns: 1fr; padding-left: 14px; border-left: 1px solid var(--ln); margin-left: 0; } .g { padding: 22px 0 0 22px; } .g::before { width: 22px; height: 1px; left: 0 !important; right: auto !important; top: 38px; } .g::after { display: none; } .rootl { height: 24px; } .g:first-child::before { left: 0; }
@@ -211,6 +211,94 @@ html[data-theme="paper"] body::before { background-image: linear-gradient(rgba(2
 #gl i { position: absolute; display: block; } #gl .h { left: 0; right: 0; height: 1px; background: repeating-linear-gradient(90deg, var(--gl) 0 8px, transparent 8px 14px); } #gl .v { top: 0; bottom: 0; width: 1px; background: repeating-linear-gradient(180deg, var(--gl) 0 8px, transparent 8px 14px); }
 #gl b { position: absolute; display: block; border: 1px dashed var(--gl); }
 @media (hover: none) { #gl { display: none; } }
+.soc { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; } .soc a { display: flex; align-items: center; gap: 10px; border: 1px solid var(--ln2); padding: 9px 14px; font: 500 13px var(--mono); text-decoration: none; transition: background 160ms, color 160ms; } .soc span { color: var(--mute); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; } .soc b { font-weight: 600; color: var(--acc); } .soc a:hover { background: var(--ln); color: var(--bg2); } .soc a:hover span, .soc a:hover b { color: inherit; }
+/* ===== Bot hero: 24 emoticon yang bereaksi (terinspirasi bot di yl0.me) ===== */
+.hr .comp { z-index: 0; }
+.botw { position: relative; width: min(100%, 540px); z-index: 1; }
+.bot { position: relative; aspect-ratio: 8 / 5; border-radius: 30px; overflow: hidden; background: transparent; border: 1.5px dashed var(--ln2); cursor: pointer; touch-action: manipulation; }
+.bot .stg { position: absolute; inset: 0; animation: botFloat 6s ease-in-out infinite; } @keyframes botFloat { 50% { transform: translateY(-5px); } }
+.bot .bob { position: absolute; inset: 0; transform: translate(var(--mx, 0px), var(--my, 0px)) rotate(var(--mr, 0deg)); }
+.bot .look { position: absolute; inset: 0; transition: transform 120ms ease-out; }
+.bot svg.ml { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; transform-origin: 50% 50%; will-change: transform, opacity; }
+.bot svg.ml [class^="k-"], .bot svg.ml [class^="s-"] { transform-box: fill-box; transform-origin: center; }
+.botchip { position: absolute; right: 0; top: -44px; display: flex; gap: 7px; align-items: center; background: #0b0f1a; color: #fff; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 99px; padding: 6px 14px; font: 500 12px var(--mono); letter-spacing: 0.04em; } .botchip span { color: #9aa3b5; } .botchip b { font-weight: 600; transition: color 300ms; display: inline-block; min-width: 4ch; }
+.botw .dimh { position: absolute; left: 0; right: 0; bottom: -34px; } .botw .dimv { position: absolute; left: calc(100% + 16px); top: 0; bottom: 0; }
+.botw .hint { position: absolute; left: 0; right: 0; top: auto; bottom: -66px; text-align: center; font: 500 11px var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); }
+.hr .call { z-index: 2; }
+/* gerakan per ekspresi */
+@keyframes bk-idle { 0%, 100% { transform: translate(0, 0) scaleY(1); } 30% { transform: translate(4px, 0) scaleY(1); } 60% { transform: translate(-4px, 1px) scaleY(1); } 86% { transform: translate(0, 0) scaleY(1); } 89% { transform: scaleY(.08); } 92% { transform: scaleY(1); } }
+@keyframes bk-bounce { 0%, 100% { transform: translateY(0); } 25% { transform: translateY(-7px); } 50% { transform: translateY(0); } 75% { transform: translateY(-4px); } }
+@keyframes bk-twinkle { 0%, 100% { transform: scale(.7) rotate(0); opacity: .6; } 50% { transform: scale(1.2) rotate(20deg); opacity: 1; } }
+@keyframes bk-winkR { 0%, 32%, 78%, 100% { opacity: 1; } 38%, 72% { opacity: 0; } } @keyframes bk-winkA { 0%, 32%, 78%, 100% { opacity: 0; } 38%, 72% { opacity: 1; } }
+@keyframes bk-tilt { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes bk-think { 0%, 100% { transform: translate(0, 0); } 40%, 70% { transform: translate(5px, -5px); } }
+@keyframes bk-dots { 0%, 100% { opacity: .25; } 30% { opacity: 1; } }
+@keyframes bk-float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-5px) scale(1.04); } }
+@keyframes bk-smug { 0%, 100% { transform: translateX(0); } 35%, 70% { transform: translateX(-5px); } }
+@keyframes bk-lid { 0%, 100% { transform: scaleY(1); } 45%, 70% { transform: scaleY(.82); } }
+@keyframes bk-brow { 0%, 100% { transform: translateY(0); } 45%, 70% { transform: translateY(-5px) rotate(-3deg); } }
+@keyframes bk-nod { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(4deg) translateY(3px); } }
+@keyframes bk-droop { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.72); } }
+@keyframes bk-z { 0% { transform: translate(0, 4px) scale(.7); opacity: 0; } 25% { opacity: 1; } 100% { transform: translate(8px, -22px) scale(1.15); opacity: 0; } }
+@keyframes bk-pop { 0%, 100% { transform: scale(1); } 8% { transform: scale(1.14); } 20% { transform: scale(.97); } 30% { transform: scale(1.06); } 45% { transform: scale(1); } }
+@keyframes bk-mark { 0%, 100% { transform: translateY(0) rotate(0); } 10% { transform: translateY(-8px) rotate(-8deg); } 22% { transform: translateY(0) rotate(5deg); } }
+@keyframes bk-conf { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
+@keyframes bk-wig { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes bk-q { 0%, 100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-6px) rotate(8deg); } }
+@keyframes bk-beat { 0%, 100% { transform: scale(1); } 14% { transform: scale(1.16); } 28% { transform: scale(.98); } 42% { transform: scale(1.1); } 60% { transform: scale(1); } }
+@keyframes bk-bar { 0%, 100% { transform: scaleY(.55); } 50% { transform: scaleY(1.4); } }
+@keyframes bk-laugh { 0%, 100% { transform: translateY(0); } 12% { transform: translateY(-7px); } 24% { transform: translateY(1px); } 36% { transform: translateY(-6px); } 48% { transform: translateY(0); } }
+@keyframes bk-tear { 0% { transform: translateY(0) scale(.6); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(26px) scale(1); opacity: 0; } }
+@keyframes bk-shy { 0%, 100% { transform: translate(-3px, 3px); } 50% { transform: translate(-6px, 4px); } }
+@keyframes bk-blush { 0%, 100% { opacity: .75; } 50% { opacity: 1; } }
+@keyframes bk-shine { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes bk-sink { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+@keyframes bk-fall { 0% { transform: translateY(-4px) scale(.6); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(46px) scale(1.05); opacity: 0; } }
+@keyframes bk-trem { 0%, 100% { transform: translateY(0); } 25% { transform: translateY(2px); } 75% { transform: translateY(-1.5px); } }
+@keyframes bk-flow { to { stroke-dashoffset: -44; } }
+@keyframes bk-shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-2.5px); } 40% { transform: translateX(2.5px); } 60% { transform: translateX(-1.5px); } 80% { transform: translateX(1.5px); } }
+@keyframes bk-vein { 0%, 100% { transform: scale(.9); } 50% { transform: scale(1.25); } }
+@keyframes bk-fear { 0%, 100% { transform: translate(0, 0); } 20% { transform: translate(-2px, 1px); } 40% { transform: translate(2px, -1px); } 60% { transform: translate(-1.5px, -1px); } 80% { transform: translate(1.5px, 1px); } }
+@keyframes bk-lines { 0%, 100% { opacity: .35; transform: scaleY(.8); } 50% { opacity: 1; transform: scaleY(1.15); } }
+@keyframes bk-spin { to { transform: rotate(360deg); } } @keyframes bk-spinr { to { transform: rotate(-360deg); } }
+@keyframes bk-sway { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+@keyframes bk-orbit { 0% { transform: translate(46px, 0); } 12.5% { transform: translate(32px, 8px); } 25% { transform: translate(0, 11px); } 37.5% { transform: translate(-32px, 8px); } 50% { transform: translate(-46px, 0); } 62.5% { transform: translate(-32px, -8px); } 75% { transform: translate(0, -11px); } 87.5% { transform: translate(32px, -8px); } 100% { transform: translate(46px, 0); } }
+@keyframes bk-awk { 0%, 100% { transform: translateX(0); } 30% { transform: translateX(-6px); } 70% { transform: translateX(6px); } }
+@keyframes bk-browL { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-6deg) translateY(-2px); } } @keyframes bk-browR { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(6deg) translateY(-2px); } }
+@keyframes bk-un { 0%, 100% { transform: translateX(0); } 40%, 70% { transform: translateX(7px); } }
+@keyframes bk-breath { 0%, 100% { transform: scaleY(1) translateY(0); } 50% { transform: scaleY(1.07) translateY(2px); } }
+@keyframes bk-load { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+@keyframes bk-bat { 0%, 100% { transform: scaleY(1); } 45%, 60% { transform: scaleY(.62); } }
+@keyframes bk-flick { 0%, 100% { opacity: 1; } 50% { opacity: .15; } }
+@keyframes bk-icon { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }
+@keyframes bk-glitch { 0%, 88%, 100% { transform: translate(0, 0); } 90% { transform: translate(-3px, 1px); } 94% { transform: translate(3px, -1px); } 97% { transform: translate(-1px, 0); } }
+@keyframes bk-gc { 0%, 100% { transform: translate(-3px, 0); } 50% { transform: translate(-7px, 1px); } } @keyframes bk-gm { 0%, 100% { transform: translate(3px, 0); } 50% { transform: translate(7px, -1px); } }
+@keyframes bk-bars { 0%, 100% { transform: translateX(0); opacity: .2; } 50% { transform: translateX(14px); opacity: .7; } }
+.k-idleEye { animation: bk-idle var(--d) ease-in-out infinite; } .k-happyArc { animation: bk-bounce var(--d) ease-in-out infinite; } .k-happySpark { animation: bk-twinkle 2.4s ease-in-out infinite; }
+.k-winkTilt { animation: bk-tilt var(--d) ease-in-out infinite; } .k-winkR { animation: bk-winkR var(--d) ease-in-out infinite; } .k-winkArc { animation: bk-winkA var(--d) ease-in-out infinite; }
+.k-thinkEye { animation: bk-think var(--d) ease-in-out infinite; } .k-thinkTail { animation: bk-dots 2s ease-in-out infinite; } .k-thinkCloud { animation: bk-float 3.4s ease-in-out infinite; } .k-thinkDot { animation: bk-dots 1.8s ease-in-out infinite; }
+.k-smugLook { animation: bk-smug var(--d) ease-in-out infinite; } .k-smugLid { animation: bk-lid var(--d) ease-in-out infinite; transform-origin: top !important; } .k-smugBrow { animation: bk-brow var(--d) ease-in-out infinite; }
+.k-sleepyHead { animation: bk-nod var(--d) ease-in-out infinite; } .k-sleepyLid { animation: bk-droop var(--d) ease-in-out infinite; transform-origin: top !important; } .k-sleepyZ, .k-sleepZ { animation: bk-z 5s ease-out infinite; }
+.k-surpEye { animation: bk-pop var(--d) ease-in-out infinite; } .k-surpMark { animation: bk-mark var(--d) ease-in-out infinite; }
+.k-confTilt { animation: bk-conf var(--d) ease-in-out infinite; } .k-confBrow { animation: bk-wig 2s ease-in-out infinite; } .k-confQ { animation: bk-q 2.6s ease-in-out infinite; } .k-confL { animation: bk-wig 3s ease-in-out infinite; }
+.k-loveHeart { animation: bk-beat var(--d) ease-in-out infinite; }
+.k-listenTilt { animation: bk-tilt var(--d) ease-in-out infinite; } .k-listenBar0, .k-listenBar1, .k-listenBar2, .k-listenBar3, .k-listenBar4, .k-listenBar5 { animation: bk-bar 1.1s ease-in-out infinite; } .k-listenBar1 { animation-delay: -.3s; animation-duration: .9s; } .k-listenBar2 { animation-delay: -.6s; animation-duration: 1.3s; } .k-listenBar3 { animation-delay: -.2s; animation-duration: 1s; } .k-listenBar4 { animation-delay: -.7s; animation-duration: 1.2s; } .k-listenBar5 { animation-delay: -.45s; animation-duration: .8s; }
+.k-laughBody { animation: bk-laugh 1.1s ease-in-out infinite; } .k-laughTear { animation: bk-tear 1.4s ease-out infinite; }
+.k-shyEye { animation: bk-shy var(--d) ease-in-out infinite; } .k-shyBlush { animation: bk-blush 2.4s ease-in-out infinite; }
+.k-puppyEyes { animation: bk-load var(--d) ease-in-out infinite; } .k-puppyBand, .k-sadBand { animation: bk-shine 2.6s ease-in-out infinite; }
+.k-sadEye { animation: bk-sink var(--d) ease-in-out infinite; } .k-sadTear { animation: bk-fall 2.8s ease-in infinite; }
+.k-cryEye { animation: bk-trem .5s ease-in-out infinite; } .k-cryDrop { animation: bk-fall 2.2s ease-in infinite; } .s-flow { stroke-dasharray: 6 16; animation: bk-flow .7s linear infinite; }
+.k-angryEyes { animation: bk-shake .5s ease-in-out infinite; } .k-angryVein { animation: bk-vein 1.1s ease-in-out infinite; }
+.k-fearEye { animation: bk-fear .4s linear infinite; } .k-fearLines { animation: bk-lines 1s ease-in-out infinite; transform-origin: bottom !important; } .k-fearDrop { animation: bk-fall 2.4s ease-in infinite; }
+.k-dizzySway { animation: bk-sway var(--d) ease-in-out infinite; } .s-spin { animation: bk-spin 2.4s linear infinite; } .s-spinr { animation: bk-spinr 2.4s linear infinite; } .k-dizzyOrbit { animation: bk-orbit 4s linear infinite; }
+.k-awkEye { animation: bk-awk var(--d) ease-in-out infinite; } .k-awkBrowL { animation: bk-browL 2.4s ease-in-out infinite; } .k-awkBrowR { animation: bk-browR 2.4s ease-in-out infinite; } .k-awkDrop { animation: bk-fall 2.6s ease-in infinite; }
+.k-unEye { animation: bk-un var(--d) ease-in-out infinite; } .k-unDot { animation: bk-dots 1.6s ease-in-out infinite; }
+.k-sleepBreath { animation: bk-breath var(--d) ease-in-out infinite; }
+.k-loadPulse { animation: bk-load 1.4s ease-in-out infinite; } .s-ld-rot { animation: bk-spin 1s linear infinite; }
+.k-batEye { animation: bk-bat var(--d) ease-in-out infinite; } .k-batIcon { animation: bk-icon 1.8s ease-in-out infinite; } .s-bat-bar { animation: bk-flick 1s steps(2, end) infinite; }
+.k-errMain { animation: bk-glitch 2s steps(1, end) infinite; } .k-errC { animation: bk-gc 1.2s steps(2, end) infinite; } .k-errM { animation: bk-gm 1.2s steps(2, end) infinite; } .k-errBar1, .k-errBar2, .k-errBar3 { animation: bk-bars 1.6s ease-in-out infinite; } .k-errBar2 { animation-delay: -.5s; } .k-errBar3 { animation-delay: -1s; }
+@media (prefers-reduced-motion: reduce) { .bot .stg, .bot svg.ml *, .bot .look { animation: none !important; transition: none !important; } }
+@media (max-width: 640px) { .botchip { top: -40px; } .botw .hint { bottom: -84px; } .botw .dimv { display: none; } }
 </style>
 </head>
 <body>
@@ -301,6 +389,9 @@ const HERO = {
   tags: [["iOS", "#2f6bff"], ["Flutter", "#12b5a0"], ["Android (baru)", "#8a5cf6"]],
   contact: "Punya proyek aplikasi mobile atau lowongan yang cocok? Kirim kabar."
 };
+/* Akun sosial: ganti "username" dengan akun Anda. Kosongkan ("") untuk menyembunyikan. */
+DATA.instagram = "https://instagram.com/username";
+DATA.gitlab = "https://gitlab.com/username";
 /* ===== Selesai bagian yang perlu diubah ===== */
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -347,6 +438,11 @@ function phone(shot, extra, btnAttrs) {
   return btnAttrs ? '<button type="button" class="phone" ' + btnAttrs + ' aria-label="Perbesar screenshot ' + esc(shot.cap) + '">' + inner + "</button>" : inner;
 }
 
+const handle = u => "@" + String(u).replace(/[?#].*$/, "").replace(/\/+$/, "").split("/").pop();
+function soc() {
+  const L = [["Instagram", DATA.instagram], ["GitLab", DATA.gitlab], ["GitHub", DATA.github], ["LinkedIn", DATA.linkedin]].filter(x => x[1]);
+  return L.length ? '<ul class="soc rv" style="--d:.25" aria-label="Akun sosial">' + L.map(([n, u]) => '<li><a href="' + esc(u) + '" target="_blank" rel="noopener"><span>' + n + "</span><b>" + esc(handle(u)) + "</b></a></li>").join("") + "</ul>" : "";
+}
 /* ---------- lembar ---------- */
 const S = [];
 const heroShot = ((P.find(p => p.shots && p.shots.length) || {}).shots || [])[0];
@@ -358,10 +454,8 @@ S.push({ id: "s0", name: "Beranda", nav: null, no: "GBR-001", html:
   '<ul class="chips rv" style="--d:.35">' + HERO.tags.map(t => '<li><u style="--c:' + t[1] + '"></u>' + esc(t[0]) + "</li>").join("") + "</ul>" +
   '<p class="sub rv" style="--d:.45">' + esc(HERO.sub) + "</p>" +
   '<div class="toc rv" style="--d:.55" id="toc" aria-label="Daftar lembar"></div></div>' +
-  '<div class="hr" aria-hidden="false">' + compass() + (heroShot ? '<div class="pw rv" style="--d:.3"><button type="button" class="phone" id="hp" aria-pressed="false" aria-label="Ganti tampilan blueprint dan render">' + phone(heroShot) + '</button>' +
-    '<span class="cb" style="left:-11px;top:6%">1</span><span class="cb" style="left:-11px;top:44%">2</span><span class="cb" style="left:-11px;bottom:7%">3</span>' +
-    '<div class="call" style="top:calc(6% - 6px)">Status · 59 pt</div><div class="call" style="top:calc(44% - 6px)">Konten</div><div class="call" style="bottom:calc(7% - 6px)">Tab bar · 83 pt</div>' +
-    dimH("393 pt") + dimV("852 pt") + '<p class="hint">Klik layar: blueprint ⇄ render</p></div>' : "") + "</div></div>" });
+  '<div class="hr"><div class="botw rv" style="--d:.3" id="botw"><div class="botchip" aria-live="polite"><span>Bot:</span><b id="botmood">idle</b></div><div class="bot" id="bot" role="button" tabindex="0" aria-label="Bot emoticon. Klik untuk mengganti ekspresi"><div class="stg"><div class="bob"><div class="look" id="look"></div></div></div></div>' +
+    dimH("320 × 200 px") + dimV("WAJAH") + '<p class="hint">Arahkan kursor ke isi halaman, atau klik wajahnya</p></div></div></div>' });
 
 const sents = String(DATA.about[1] || "").split(/(?<=\.)\s+/).filter(Boolean);
 S.push({ id: "s1", name: "Tentang", nav: "Tentang", no: "GBR-002", html:
@@ -394,7 +488,7 @@ S.push({ id: "s" + (eid + 1), name: "Pendidikan", nav: "Pendidikan", no: "GBR-" 
   '<div class="kick cap rv">Blok judul</div><h2 class="h2 rv" style="--d:.05">Latar <em>pendidikan</em></h2><div class="ed rv" style="--d:.15"><div class="c"><div class="lb2">Program studi</div><div class="big">' + esc(sk.role || "") + '</div></div><div class="c span2"><div class="lb2">IPK akhir</div><div class="ipk">' + esc(ipk) + '</div></div><div class="c"><div class="lb2">Institusi · periode</div><div class="big" style="font-size:clamp(24px,2.6vw,34px)">' + esc([sk.org, sk.period].filter(Boolean).join(" · ")) + "</div></div>" +
   DATA.education.slice(1).map(e => '<div class="c w"><div class="lb2">Pendidikan sebelumnya</div><div class="big" style="font-size:clamp(22px,2.4vw,30px)">' + esc([e.role, e.org, e.period].filter(Boolean).join(" · ")) + "</div></div>").join("") + "</div>" });
 S.push({ id: "s" + (eid + 2), name: "Kontak", nav: "Kontak", no: "GBR-" + pad3(6 + P.length), html:
-  '<div class="kick cap rv">Blok persetujuan</div><h2 class="h2 rv" style="--d:.05">Mari <em>setujui</em> kerja sama</h2><div class="apv"><div><p class="sub rv" style="--d:.1">' + esc(HERO.contact) + '</p><a class="mail rv" style="--d:.15" href="mailto:' + esc(DATA.email) + '">' + esc(DATA.email) + '</a><div class="btns rv" style="--d:.2"><a class="btn y" href="mailto:' + esc(DATA.email) + '">Kirim email</a><button type="button" class="btn" data-copy>Salin alamat</button><button type="button" class="btn" data-cv>Unduh CV (PDF)</button></div></div>' +
+  '<div class="kick cap rv">Blok persetujuan</div><h2 class="h2 rv" style="--d:.05">Mari <em>setujui</em> kerja sama</h2><div class="apv"><div><p class="sub rv" style="--d:.1">' + esc(HERO.contact) + '</p><a class="mail rv" style="--d:.15" href="mailto:' + esc(DATA.email) + '">' + esc(DATA.email) + '</a><div class="btns rv" style="--d:.2"><a class="btn y" href="mailto:' + esc(DATA.email) + '">Kirim email</a><button type="button" class="btn" data-copy>Salin alamat</button><button type="button" class="btn" data-cv>Unduh CV (PDF)</button></div>' + soc() + '</div>' +
   '<div class="sign"><div class="stamp">Terbuka untuk proyek<small>Disetujui · ' + YEAR + '</small></div><div class="sl"><div>Disetujui oleh<b>' + esc(DATA.name) + "</b></div><div>Lokasi<b>" + esc(DATA.location) + "</b></div></div></div></div>" });
 const N = S.length, REV = "A";
 $("#page").innerHTML = S.map((s, i) => '<section class="sheet" id="' + s.id + '" aria-label="' + esc(s.name) + '"><span class="cm a"></span><span class="cm b"></span><span class="cm c"></span><span class="cm d"></span><div class="zt" aria-hidden="true">' + "ABCDEF".split("").map(l => "<span>" + l + "</span>").join("") + '</div><div class="zs" aria-hidden="true">' + [1, 2, 3, 4].map(n => "<span>" + n + "</span>").join("") + '</div><div class="tab" aria-hidden="true"><span>Lembar ' + pad(i + 1) + "/" + pad(N) + "</span><b>" + esc(s.name) + '</b></div><div class="body">' + s.html + '</div><div class="foot" aria-hidden="true"><span>REV ' + REV + "</span><span>" + esc(s.no) + "</span></div></section>").join("");
@@ -464,6 +558,125 @@ document.addEventListener("keydown", e => { if (!lb.hidden) { if (e.key === "Esc
   document.addEventListener("pointerover", e => { if (e.pointerType === "touch") return; const t = e.target.closest ? e.target.closest(SEL) : null; if (t && !t.closest("#lb")) { el = t; sched(); } });
   document.addEventListener("pointerout", e => { if (el && !(e.relatedTarget && el.contains(e.relatedTarget))) { const n = e.relatedTarget && e.relatedTarget.closest ? e.relatedTarget.closest(SEL) : null; if (!n) { el = null; sched(); } } });
   addEventListener("scroll", sched, { passive: true }); addEventListener("resize", sched);
+})();
+
+/* ---------- Bot: 24 emoticon yang bereaksi (gaya bot-mata di yl0.me, digambar ulang) ---------- */
+(() => {
+  const root = $("#botw"); if (!root) return;
+  const look = $("#look"), botEl = $("#bot"), stage = $(".stg", botEl), bob = $(".bob", botEl), chipB = $("#botmood");
+  const INK = "#151922";
+  const DROP = '<path fill="#4DB2F5" d="M0 -14 C7 -4 10 2 10 6 A10 10 0 0 1 -10 6 C-10 2 -7 -4 0 -14Z"/>', SHINE = '<ellipse cx="-3.8" cy="5.5" rx="2" ry="3.4" fill="#fff" opacity=".8"/>';
+  const drop = (x, y, s, dl, rot, hl, cls) => '<g transform="translate(' + x + " " + y + ")" + (rot ? " rotate(" + rot + ")" : "") + '"><g class="k-' + (cls || "awkDrop") + '"' + (dl ? ' style="animation-delay:' + dl + 's"' : "") + '><g transform="scale(' + s + ')">' + DROP + (hl === false ? "" : SHINE) + "</g></g></g>";
+  const sp = (c, d, extra) => '<path class="' + c + '" d="' + d + '"' + (extra || "") + "/>";
+  const dly = (d, o) => ' style="animation-delay:-' + (d - (o == null ? 0.03 : o)).toFixed(2) + 's"';
+  const SPARK = "M0 -11 Q1.6 -1.6 11 0 Q1.6 1.6 0 11 Q-1.6 1.6 -11 0 Q-1.6 -1.6 0 -11Z";
+  const STAR = "M0 -9.4L2.47 -3.4L8.94 -2.9L3.99 1.3L5.53 7.6L0 4.2L-5.53 7.6L-3.99 1.3L-8.94 -2.9L-2.47 -3.4Z";
+  const ZZ = (x, y, s, dl) => '<g transform="translate(' + x + " " + y + ')"><g class="k-sleepZ"' + (dl ? ' style="animation-delay:' + dl + 's"' : "") + '><path transform="scale(' + s + ')" d="M-7 -7 H7 L-7 7 H7" fill="none" stroke="#6C73D9" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></g></g>';
+  const pair = (cls, d, shape, dl2) => '<g>' + shape(85, 0, "") + "</g>";
+  const SPIRAL = "M0 0 a3 3 0 0 1 6 0 a6 6 0 0 1 -12 0 a9 9 0 0 1 18 0 a12 12 0 0 1 -24 0 a15 15 0 0 1 30 0 a18 18 0 0 1 -36 0";
+  const XP = "M86 78 L130 122 M130 78 L86 122", XP2 = "M190 78 L234 122 M234 78 L190 122";
+  const sadMask = (id, p) => '<mask id="' + id + '" maskUnits="userSpaceOnUse" x="0" y="0" width="320" height="200"><path d="' + p + '" fill="#fff" stroke="#fff" stroke-width="12"/></mask>';
+  const MOODS = {
+    idle: [4.8, () => '<g fill="' + INK + '"><rect class="k-idleEye" x="85" y="66" width="46" height="68" rx="23"/><rect class="k-idleEye"' + dly(4.8, 0.03) + ' x="189" y="66" width="46" height="68" rx="23"/></g>'],
+    happy: [3.6, () => '<g fill="none" stroke="' + INK + '" stroke-width="13" stroke-linecap="round"><path class="k-happyArc" d="M84 118 A24 32 0 0 1 132 118"/><path class="k-happyArc"' + dly(3.6, 0.04) + ' d="M188 118 A24 32 0 0 1 236 118"/></g><g transform="translate(266 56)"><path class="k-happySpark" fill="#F5A800" d="' + SPARK + '"/></g><g transform="translate(54 70) scale(.6)"><path class="k-happySpark" style="animation-delay:-2.3s" fill="#F5A800" d="' + SPARK + '"/></g>'],
+    wink: [4, () => '<g class="k-winkTilt" style="transform-box:view-box;transform-origin:160px 100px"><g><rect x="85" y="66" width="46" height="68" rx="23" fill="' + INK + '"/></g><g class="k-winkR"><rect x="189" y="66" width="46" height="68" rx="23" fill="' + INK + '"/></g><g class="k-winkArc"><path d="M188 118 A24 32 0 0 1 236 118" fill="none" stroke="' + INK + '" stroke-width="13" stroke-linecap="round"/></g></g>'],
+    thinking: [4.6, () => '<g fill="' + INK + '"><rect class="k-thinkEye" x="95" y="62" width="44" height="64" rx="22"/><rect class="k-thinkEye"' + dly(4.6, 0.03) + ' x="199" y="68" width="44" height="52" rx="22"/></g><g fill="#B8C3D8"><circle class="k-thinkTail" cx="252.1" cy="61" r="2.8"/><circle class="k-thinkTail" style="animation-delay:-.7s" cx="260.4" cy="53.8" r="4"/></g><g class="k-thinkCloud"><g fill="#B8C3D8"><circle cx="267" cy="39" r="9.5"/><circle cx="270" cy="27" r="9.5"/><circle cx="284" cy="20.5" r="12"/><circle cx="299" cy="26" r="10.5"/><circle cx="302" cy="39" r="9.5"/><circle cx="289" cy="45" r="9"/><circle cx="276" cy="46" r="8.5"/><ellipse cx="285" cy="34" rx="19" ry="13"/></g><g fill="#7F8CA8"><circle class="k-thinkDot" cx="273.7" cy="32.8" r="3"/><circle class="k-thinkDot" style="animation-delay:-1.2s" cx="284.7" cy="32.8" r="3"/><circle class="k-thinkDot" style="animation-delay:-.6s" cx="295.7" cy="32.8" r="3"/></g></g>'],
+    smug: [4.6, () => '<g class="k-smugLook"><g fill="' + INK + '" stroke="' + INK + '" stroke-width="6" stroke-linejoin="round"><path class="k-smugLid" d="M90 104 L134 104 Q134 132 112 132 Q90 132 90 104 Z"/><path class="k-smugLid"' + dly(4.6) + ' d="M194 94 L238 94 Q238 124 216 124 Q194 124 194 94 Z"/></g><path class="k-smugBrow" d="M196 64 Q218 49 242 61" fill="none" stroke="' + INK + '" stroke-width="7" stroke-linecap="round"/></g>'],
+    sleepy: [5, () => '<g class="k-sleepyHead" style="transform-box:view-box;transform-origin:160px 112px"><g fill="#2B3050" stroke="#2B3050" stroke-width="6" stroke-linejoin="round"><path class="k-sleepyLid" d="M86 100 L130 100 Q130 126 108 126 Q86 126 86 100 Z"/><path class="k-sleepyLid"' + dly(5, 0.04) + ' d="M190 100 L234 100 Q234 126 212 126 Q190 126 190 100 Z"/></g></g><g transform="translate(264 68)"><g class="k-sleepyZ"><path transform="scale(1.1)" d="M-7 -7 H7 L-7 7 H7" fill="none" stroke="#6C73D9" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></g></g>'],
+    surprised: [3.8, () => '<g fill="' + INK + '"><ellipse class="k-surpEye" cx="108" cy="102" rx="30" ry="46"/><ellipse class="k-surpEye"' + dly(3.8, 0.03) + ' cx="212" cy="102" rx="30" ry="46"/></g><g transform="translate(274 48) rotate(14)"><g class="k-surpMark" fill="#F5A800"><rect x="-4.5" y="-18" width="9" height="24" rx="4.5"/><circle cy="16" r="5"/></g></g>'],
+    confused: [4.4, () => '<g class="k-confTilt" style="transform-box:view-box;transform-origin:160px 104px"><g class="k-confL"><circle cx="108" cy="110" r="19" fill="' + INK + '"/></g><g><rect x="188" y="62" width="48" height="76" rx="24" fill="' + INK + '"/></g><path class="k-confBrow" d="M90 80 Q99 70 108 80 T126 80" fill="none" stroke="' + INK + '" stroke-width="6" stroke-linecap="round"/></g><g transform="translate(272 48)"><g class="k-confQ"><path d="M-9 -10 C-9 -24 11 -24 11 -10 C11 -1 1 -2 1 9" fill="none" stroke="#F5A800" stroke-width="6" stroke-linecap="round"/><circle cx="1" cy="21" r="4" fill="#F5A800"/></g></g>'],
+    love: [4, () => { const H = "M0 26 C-40 0 -34 -30 -14 -30 C-6 -30 0 -24 0 -18 C0 -24 6 -30 14 -30 C34 -30 40 0 0 26Z"; return '<g style="filter:drop-shadow(0 3px 6px rgba(255,79,147,.28))"><g transform="translate(108 104)"><path class="k-loveHeart" fill="#FF4F93" d="' + H + '"/></g><g transform="translate(212 104)"><path class="k-loveHeart"' + dly(4, 0.05) + ' fill="#FF4F93" d="' + H + '"/></g></g>'; }],
+    listening: [3.6, () => '<g class="k-listenTilt" style="transform-box:view-box;transform-origin:160px 100px"><g fill="' + INK + '"><rect class="k-listenBar0" x="86" y="80" width="12" height="40" rx="6"/><rect class="k-listenBar1" x="104" y="64" width="12" height="72" rx="6"/><rect class="k-listenBar2" x="122" y="74" width="12" height="52" rx="6"/><rect class="k-listenBar3" x="190" y="80" width="12" height="40" rx="6"/><rect class="k-listenBar4" x="208" y="64" width="12" height="72" rx="6"/><rect class="k-listenBar5" x="226" y="74" width="12" height="52" rx="6"/></g></g>'],
+    laughing: [3.6, () => '<g class="k-laughBody"><g fill="none" stroke="' + INK + '" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"><path d="M84 74 L128 100 L84 126"/><path d="M236 74 L192 100 L236 126"/></g></g>' + drop(54, 70, 0.85, 0, 125, true, "laughTear") + drop(40, 114, 0.62, -0.12, 95, true, "laughTear") + drop(266, 70, 0.85, -0.06, -125, true, "laughTear") + drop(280, 114, 0.62, -0.2, -95, true, "laughTear")],
+    shy: [4.8, () => '<g fill="' + INK + '"><circle class="k-shyEye" cx="106" cy="98" r="18"/><circle class="k-shyEye"' + dly(4.8, 0.03) + ' cx="210" cy="98" r="18"/></g>' + [[84, 74], [236, 224]].map(([cx, x0]) => '<g class="k-shyBlush" opacity=".85"><ellipse cx="' + cx + '" cy="130" rx="26" ry="11" fill="#FF8FB7"/><g fill="none" stroke="#FFF1F6" stroke-width="3" stroke-linecap="round"><path d="M' + x0 + ' 125 l4 10"/><path d="M' + (x0 + 11) + ' 125 l4 10"/><path d="M' + (x0 + 22) + ' 125 l4 10"/></g></g>').join("")],
+    puppy: [4.4, () => '<defs><mask id="pupL" maskUnits="userSpaceOnUse" x="0" y="0" width="320" height="200"><rect x="81" y="61" width="54" height="78" rx="27" fill="#fff" transform="rotate(9 108 100)"/></mask><mask id="pupR" maskUnits="userSpaceOnUse" x="0" y="0" width="320" height="200"><rect x="185" y="61" width="54" height="78" rx="27" fill="#fff" transform="rotate(-9 212 100)"/></mask></defs><g class="k-puppyEyes"><g fill="' + INK + '"><rect x="81" y="61" width="54" height="78" rx="27" transform="rotate(9 108 100)"/><rect x="185" y="61" width="54" height="78" rx="27" transform="rotate(-9 212 100)"/></g><g mask="url(#pupL)"><rect class="k-puppyBand" x="60" y="116" width="96" height="26" fill="#9AA3B5" opacity=".5"/></g><g mask="url(#pupR)"><rect class="k-puppyBand" style="animation-delay:-1.3s" x="164" y="116" width="96" height="26" fill="#9AA3B5" opacity=".5"/></g></g>'],
+    sad: [4.6, () => '<defs>' + sadMask("sadL", "M91 100 L125 80 L125 111 A17 17 0 0 1 91 111 Z") + sadMask("sadR", "M229 100 L195 80 L195 111 A17 17 0 0 0 229 111 Z") + '</defs><g class="k-sadEye"><path d="M91 100 L125 80 L125 111 A17 17 0 0 1 91 111 Z" fill="#243049" stroke="#243049" stroke-width="12" stroke-linejoin="round"/><g mask="url(#sadL)"><rect class="k-sadBand" x="76" y="119" width="64" height="15" fill="#8FA3C7" opacity=".5"/></g></g><g class="k-sadEye"' + dly(4.6) + '><path d="M229 100 L195 80 L195 111 A17 17 0 0 0 229 111 Z" fill="#243049" stroke="#243049" stroke-width="12" stroke-linejoin="round"/><g mask="url(#sadR)"><rect class="k-sadBand" style="animation-delay:-.7s" x="180" y="119" width="64" height="15" fill="#8FA3C7" opacity=".5"/></g></g>' + drop(240, 134, 0.8, 0, 0, true, "sadTear")],
+    crying: [3.6, () => '<g fill="#4DB2F5"><rect x="98" y="118" width="20" height="100" rx="10"/><rect x="202" y="118" width="20" height="100" rx="10"/></g><g fill="none" stroke="#CBE9FF" stroke-width="4" stroke-linecap="round"><path class="s-flow" d="M108 128 V200"/><path class="s-flow" style="animation-delay:-.1s" d="M212 128 V200"/></g><g fill="#1C2B4A" stroke="#1C2B4A" stroke-width="12" stroke-linejoin="round"><g class="k-cryEye"><path d="M91 92 L125 76 L125 111 A17 17 0 0 1 91 111 Z"/></g><g class="k-cryEye" style="animation-delay:-.25s"><path d="M229 92 L195 76 L195 111 A17 17 0 0 0 229 111 Z"/></g></g>' + drop(62, 124, 0.7, -0.3, 0, false, "cryDrop") + drop(258, 124, 0.7, -1.1, 0, false, "cryDrop")],
+    angry: [3.6, () => '<g class="k-angryEyes" fill="#F2503E" stroke="#F2503E" stroke-width="12" stroke-linejoin="round"><path d="M91 80 L125 100 L125 111 A17 17 0 0 1 91 111 Z"/><path d="M229 80 L195 100 L195 111 A17 17 0 0 0 229 111 Z"/></g><g transform="translate(270 48)"><g class="k-angryVein" fill="none" stroke="#F2503E" stroke-width="5.5" stroke-linecap="round"><path d="M-15 -5 Q-5 -5 -5 -15"/><path d="M5 -15 Q5 -5 15 -5"/><path d="M-15 5 Q-5 5 -5 15"/><path d="M5 15 Q5 5 15 5"/></g></g>'],
+    frightened: [3.4, () => '<g fill="#3A4252"><rect class="k-fearEye" x="91" y="64" width="34" height="76" rx="17"/><rect class="k-fearEye" style="animation-delay:-.1s" x="195" y="64" width="34" height="76" rx="17"/></g><g fill="none" stroke="#6F7FF0" stroke-width="4" stroke-linecap="round"><g class="k-fearLines"><path d="M94 30 V44"/><path d="M108 26 V46"/><path d="M122 30 V44"/></g><g class="k-fearLines" style="animation-delay:-.4s"><path d="M198 30 V44"/><path d="M212 26 V46"/><path d="M226 30 V44"/></g></g>' + drop(268, 66, 1.05, 0, 0, true, "fearDrop") + drop(52, 82, 0.75, -1.7, 0, true, "fearDrop")],
+    dizzy: [4, () => '<g class="k-dizzySway" style="transform-box:view-box;transform-origin:160px 104px"><g transform="translate(108 104) scale(1.5)"><path class="s-spin" d="' + SPIRAL + '" fill="none" stroke="' + INK + '" stroke-width="3.4" stroke-linecap="round"/></g><g transform="translate(212 104) scale(1.5)"><path class="s-spinr" d="' + SPIRAL + '" fill="none" stroke="' + INK + '" stroke-width="3.4" stroke-linecap="round"/></g></g><g transform="translate(160 46)" fill="#F5A800" stroke="#F5A800" stroke-width="2.2" stroke-linejoin="round">' + [0, -2.6667, -1.3333].map((d, i) => '<g class="k-dizzyOrbit" style="animation-delay:' + d + 's"><g class="s-spin" style="animation-delay:-' + (i * 0.7) + 's"><path d="' + STAR + '"/></g></g>').join("") + "</g>"],
+    awkward: [4.4, () => '<g fill="' + INK + '"><circle class="k-awkEye" cx="116" cy="108" r="17"/><circle class="k-awkEye"' + dly(4.4, 0.03) + ' cx="220" cy="108" r="17"/></g><g fill="none" stroke="' + INK + '" stroke-width="6" stroke-linecap="round"><path class="k-awkBrowL" d="M94 80 L126 68"/><path class="k-awkBrowR" d="M210 68 L242 80"/></g>' + drop(266, 64, 1.25, -4.1, 0, true, "awkDrop") + drop(54, 72, 0.8, -1.9, 0, false, "awkDrop")],
+    unamused: [4.2, () => '<g fill="#3D4455"><rect class="k-unEye" x="80" y="95" width="52" height="11" rx="5.5"/><rect class="k-unEye"' + dly(4.2, 0.03) + ' x="188" y="95" width="52" height="11" rx="5.5"/></g><g fill="#3D4455"><circle class="k-unDot" cx="252" cy="62" r="3.5"/><circle class="k-unDot" style="animation-delay:-1.1s" cx="266" cy="62" r="3.5"/><circle class="k-unDot" style="animation-delay:-.55s" cx="280" cy="62" r="3.5"/></g>'],
+    sleeping: [5, () => '<g class="k-sleepBreath"><g fill="none" stroke="#2B3050" stroke-width="11" stroke-linecap="round"><path d="M84 96 A24 20 0 0 0 132 96"/><path d="M188 96 A24 20 0 0 0 236 96"/></g></g>' + ZZ(246, 80, 0.85, 0) + ZZ(268, 58, 1.12, -3.3333) + ZZ(292, 34, 1.4, -1.6667)],
+    loading: [3.6, () => [[108, 0, 0], [212, -3.51, -3.3]].map(([x, a, b]) => '<g transform="translate(' + x + ' 100)"><g class="k-loadPulse"' + (a ? ' style="animation-delay:' + a + 's"' : "") + '><circle r="28" fill="none" stroke="#DDE2EC" stroke-width="9"/><g class="s-ld-rot"' + (b ? ' style="animation-delay:' + b + 's"' : "") + '><circle r="28" fill="none" stroke="' + INK + '" stroke-width="9" stroke-linecap="round" stroke-dasharray="52 124"/></g></g></g>').join("")],
+    lowbattery: [4.4, () => '<g fill="#F59A0C"><rect class="k-batEye" x="88" y="92" width="40" height="32" rx="16"/><rect class="k-batEye"' + dly(4.4, 0.03) + ' x="192" y="92" width="40" height="32" rx="16"/></g><g transform="translate(136 30)"><g class="k-batIcon"><rect x="0" y="0" width="40" height="18" rx="5" fill="none" stroke="#F59A0C" stroke-width="3.5"/><rect x="43" y="5" width="4" height="8" rx="2" fill="#F59A0C"/><rect class="s-bat-bar" x="5" y="5" width="9" height="8" rx="2" fill="#E5483B"/></g></g>'],
+    error: [4, () => '<g class="k-errMain"><g fill="none" stroke-width="12" stroke-linecap="round"><g stroke="#1FC8E8" opacity=".75"><g class="k-errC"><path d="' + XP + '"/><path d="' + XP2 + '"/></g></g><g stroke="#FF3FA0" opacity=".75"><g class="k-errM"><path d="' + XP + '"/><path d="' + XP2 + '"/></g></g><g stroke="#E5483B"><path d="' + XP + '"/><path d="' + XP2 + '"/></g></g></g><g fill="#E5483B" opacity=".55"><rect class="k-errBar1" x="56" y="66" width="36" height="4" rx="2"/><rect class="k-errBar2" x="226" y="134" width="48" height="4" rx="2"/><rect class="k-errBar3" x="138" y="158" width="30" height="3" rx="1.5"/></g>'],
+  };
+  const NAMES = Object.keys(MOODS);
+  const CHIP = { idle: ["idle", "#2DD4BF"], happy: ["happy", "#4ADE80"], wink: ["winking", "#FB923C"], thinking: ["thinking", "#60A5FA"], smug: ["smug", "#C084FC"], sleepy: ["sleepy", "#818CF8"], surprised: ["surprised", "#FBBF24"], confused: ["confused", "#FB7185"], love: ["in love", "#F472B6"], listening: ["listening", "#38BDF8"], laughing: ["laughing", "#A3E635"], shy: ["shy", "#E879F9"], puppy: ["puppy eyes", "#FDA4AF"], sad: ["sad", "#93C5FD"], crying: ["crying", "#22D3EE"], angry: ["angry", "#F87171"], frightened: ["frightened", "#C4B5FD"], dizzy: ["dizzy", "#FCD34D"], awkward: ["awkward", "#FDE68A"], unamused: ["unamused", "#A1A1AA"], sleeping: ["sleeping", "#7C86FF"], loading: ["loading", "#99F6E4"], lowbattery: ["low battery", "#F59A0C"], error: ["error", "#FF3FA0"] };
+  /* di latar biru, warna gelap diganti terang agar tetap terbaca; mode kertas memakai warna asli */
+  const PAL = { "#151922": "#f4f8ff", "#2B3050": "#d7e4ff", "#3A4252": "#dbe7ff", "#3D4455": "#dbe7ff", "#1C2B4A": "#eaf1ff", "#243049": "#eaf1ff", "#8FA3C7": "#ffffff", "#9AA3B5": "#ffffff", "#DDE2EC": "rgba(255,255,255,.3)", "#B8C3D8": "#e6efff", "#7F8CA8": "#4a74cc", "#4DB2F5": "#8fe6ff", "#CBE9FF": "#ffffff", "#6C73D9": "#cdd6ff", "#6F7FF0": "#cdd6ff" };
+  const dark = () => document.documentElement.dataset.theme !== "paper";
+  const layerOf = m => { const [d, f] = MOODS[m]; let s = f(); if (dark()) s = s.replace(/#[0-9A-Fa-f]{6}/g, c => PAL[c.toUpperCase()] || c); const w = document.createElement("div"); w.innerHTML = '<svg class="ml" aria-hidden="true" viewBox="0 0 320 200" style="--d:' + d + 's">' + s + "</svg>"; return w.firstChild; };
+  const cache = {};
+  let mood = null, prevEl = null, curEl = null, fadeT = 0;
+  /* transisi: ekspresi lama "berkedip menutup", ekspresi baru "membuka" dengan pantulan kecil */
+  const OUT = [{ opacity: 1, transform: "scale(1,1)" }, { opacity: 0, transform: "scale(.96,.08)" }];
+  const IN = [{ opacity: 0, transform: "scale(.9,.08)" }, { opacity: 1, offset: 0.35 }, { opacity: 1, transform: "scale(1.04,1.07)", offset: 0.72 }, { opacity: 1, transform: "scale(1,1)" }];
+  function swap(m) {
+    if (m === mood || !MOODS[m]) return false;
+    mood = m; clearTimeout(fadeT);
+    if (prevEl) { prevEl.getAnimations().forEach(a => a.cancel()); prevEl.remove(); prevEl = null; }
+    const old = curEl; curEl = layerOf(m); look.appendChild(curEl);
+    if (reduce || !curEl.animate) { if (old) old.remove(); }
+    else {
+      if (old) { prevEl = old; old.animate(OUT, { duration: 170, easing: "cubic-bezier(.5,0,.9,.5)", fill: "forwards" }); }
+      curEl.style.opacity = 0; curEl.animate(IN, { duration: 480, delay: old ? 130 : 0, easing: "cubic-bezier(.2,.8,.25,1)", fill: "both" });
+      fadeT = setTimeout(() => { if (prevEl) { prevEl.remove(); prevEl = null; } }, 360);
+    }
+    chipB.textContent = CHIP[m][0]; chipB.style.color = CHIP[m][1]; botEl.dataset.mood = m; window.dispatchEvent(new CustomEvent("botmood", { detail: { mood: m } })); return true;
+  }
+  /* mesin suasana hati: putaran acak, hover menahan, unhover melanjutkan */
+  const M = { running: false, hovering: false, bag: [], tickT: 0, hoverT: 0 };
+  const nextMood = () => { if (!M.bag.length) { const b = NAMES.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } if (b[b.length - 1] === mood) [b[0], b[b.length - 1]] = [b[b.length - 1], b[0]]; M.bag = b; } let n = M.bag.pop(); if (n === mood && M.bag.length) { const a = M.bag.pop(); M.bag.unshift(n); n = a; } return n; };
+  const gap = () => 3000 + Math.random() * 2000;
+  function tick(delay) { clearTimeout(M.tickT); M.tickT = setTimeout(() => { if (!M.running) return; if (M.hovering) { tick(1200); return; } swap(nextMood()); tick(gap()); }, delay); }
+  const setMood = (m, extra) => { M.hovering = false; clearTimeout(M.hoverT); swap(m); if (M.running) tick(gap() + (extra || 0)); };
+  const hover = m => { M.hovering = true; swap(m); clearTimeout(M.hoverT); M.hoverT = setTimeout(() => { M.hovering = false; if (M.running) tick(300); }, 4800); };
+  const unhover = () => { if (!M.hovering) return; M.hovering = false; clearTimeout(M.hoverT); if (M.running) tick(1100); };
+  const start = d => { M.running = true; tick(d || gap()); }, stop = () => { M.running = false; clearTimeout(M.tickT); };
+  new MutationObserver(() => { if (!mood || !curEl) return; const n = layerOf(mood); curEl.replaceWith(n); curEl = n; }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  window.BotEyes = { setMood, hover, unhover, start, stop, moods: NAMES, get mood() { return mood; } };
+
+  /* tatapan kursor dan tarikan magnet */
+  const smooth = (a, b, x) => { const t = Math.max(0, Math.min(1, (x - a) / (b - a || 1))); return t * t * (3 - 2 * t); };
+  const cur = { x: 0, y: 0, on: false }, drift = { x: 0, y: 0, r: 0, run: false, t: 0 };
+  let gazeRaf = 0;
+  function gaze() { gazeRaf = 0; if (!cur.on) return; const r = botEl.getBoundingClientRect(); if (!r.width) return; const dx = cur.x - (r.left + r.width / 2), dy = cur.y - (r.top + r.height / 2), d = Math.hypot(dx, dy) || 1; const k = smooth(0, 0.4 * r.width, d) * (1 - smooth(0.6 * r.width, 1.0 * r.width, d)); look.style.transform = "translate(" + ((dx / d) * k * r.width * 0.07).toFixed(1) + "px," + ((dy / d) * k * r.width * 0.035).toFixed(1) + "px)"; }
+  function magStep(dt) {
+    let tx = 0, ty = 0, tr = 0;
+    if (cur.on && !reduce) { const b = botEl.getBoundingClientRect(), cx = b.left + b.width / 2 - drift.x, cy = b.top + b.height / 2 - drift.y, dx = cur.x - cx, dy = cur.y - cy, d = Math.hypot(dx, dy), R = 24 + b.width * 0.3;
+      if (d < R) { const u = 1 - d / R, e = u * u * (3 - 2 * u), pull = 0.42 * e; tx = dx * pull; ty = dy * pull; const cap = Math.min(44, b.width * 0.24), mg = Math.hypot(tx, ty); if (mg > cap) { tx *= cap / mg; ty *= cap / mg; } tr = Math.max(-1, Math.min(1, dx / R)) * 6 * e; } }
+    const a = 1 - Math.exp(-dt * 8); drift.x += (tx - drift.x) * a; drift.y += (ty - drift.y) * a; drift.r += (tr - drift.r) * a;
+    bob.style.setProperty("--mx", drift.x.toFixed(2) + "px"); bob.style.setProperty("--my", drift.y.toFixed(2) + "px"); bob.style.setProperty("--mr", drift.r.toFixed(2) + "deg");
+    return !cur.on && Math.abs(drift.x) < 0.05 && Math.abs(drift.y) < 0.05 && Math.abs(drift.r) < 0.05;
+  }
+  function magKick() { if (drift.run) return; drift.run = true; drift.t = performance.now(); const loop = t => { const dt = Math.min(0.05, Math.max(0.001, (t - drift.t) / 1000)); drift.t = t; if (magStep(dt)) { drift.run = false; return; } requestAnimationFrame(loop); }; requestAnimationFrame(loop); }
+  let lastMove = Date.now(), asleep = false;
+  addEventListener("mousemove", e => { cur.x = e.clientX; cur.y = e.clientY; cur.on = true; magKick(); if (!gazeRaf) gazeRaf = requestAnimationFrame(gaze); lastMove = Date.now(); if (asleep) { asleep = false; setMood("surprised"); } }, { passive: true });
+  document.addEventListener("mouseout", e => { if (!e.relatedTarget) { cur.on = false; magKick(); look.style.transform = ""; } }, { passive: true });
+  setInterval(() => { if (!asleep && Date.now() - lastMove > 30000 && !document.hidden) { asleep = true; setMood("sleeping", 60000); } }, 3000);
+
+  /* reaksi terhadap isi halaman */
+  const HOVER = [
+    [".top .brand", "happy"], [".top nav button:nth-child(1)", "shy"], [".top nav button:nth-child(2)", "smug"], [".top nav button:nth-child(3)", "surprised"], [".top nav button:nth-child(4)", "listening"], [".top nav button:nth-child(5)", "thinking"], [".top nav button:nth-child(6)", "love"],
+    [".tg", "sleepy"], [".name", "wink"], [".role", "idle"], [".chips li:nth-child(1)", "smug"], [".chips li:nth-child(2)", "happy"], [".chips li:nth-child(3)", "confused"], [".hero .sub", "listening"], [".hero .toc button", "thinking"],
+    [".stat", "surprised"], [".phone", "laughing"], [".g li span", "thinking"], [".nd", "smug"], [".rt .row", "listening"], [".mail, .btn.y", "love"], ["[data-copy]", "surprised"], ["[data-cv]", "puppy"], [".soc li:nth-child(1) a", "love"], [".soc li:nth-child(2) a", "thinking"], [".soc a", "happy"], [".tblk .go", "puppy"], [".tblk", "idle"], [".btn", "wink"], [".stamp, .sign", "happy"], ["#bot", null],
+  ];
+  const find = t => { for (const [sel, m] of HOVER) { if (t.closest(sel)) return m; } return undefined; };
+  document.addEventListener("pointerover", e => { if (e.pointerType === "touch" || !e.target.closest) return; const m = find(e.target); if (m) hover(m); else if (m === undefined && !e.target.closest("#bot")) unhover(); });
+  document.addEventListener("pointerout", e => { if (e.pointerType === "touch") return; const to = e.relatedTarget; if (!to || !find(to)) unhover(); });
+  document.addEventListener("focusin", e => { const m = e.target.closest && find(e.target); if (m) hover(m); });
+  document.addEventListener("focusout", unhover);
+  document.addEventListener("click", e => {
+    if (e.target.closest("[data-cv]")) { setMood("loading"); setTimeout(() => setMood("happy"), 1500); return; }
+    if (e.target.closest("[data-copy]")) { setTimeout(() => setMood(/Gagal/.test(e.target.closest("[data-copy]").textContent) ? "error" : "happy"), 250); return; }
+    if (e.target.closest("#bot")) { setMood(nextMood()); }
+  });
+  botEl.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setMood(nextMood()); } });
+  /* mulai: bangun (loading) lalu senang, putaran acak jalan hanya saat bot terlihat */
+  swap("loading"); setTimeout(() => { if (mood === "loading") swap("happy"); }, 1300);
+  if ("IntersectionObserver" in window) new IntersectionObserver(es => { for (const en of es) { if (en.isIntersecting) start(M.running ? undefined : 2200); else stop(); } }, { threshold: 0.2 }).observe(root); else start(2200);
 })();
 </script>
 </body>
